@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark" />
+    <title>Tejas Kachariya | AI Engineer & ML Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Tejas Kachariya, AI Engineer and ML Engineer. End-to-end machine learning and RAG applications."
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #000000;
+        --bg2: #12102a;
+        --card: rgba(255, 255, 255, 0.045);
+        --ink: #f5f5f7;
+        --muted: #a3a3b5;
+        --line: rgba(255, 255, 255, 0.13);
+        --a: #8b7bff;
+        --b: #ff4fa3;
+        --c: #22d3ee;
+        --glow: rgba(139, 123, 255, 0.32);
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        color-scheme: dark;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(70px + env(safe-area-inset-top, 0px));
+        background: #000;
+      }
+      body {
+        margin: 0;
+        background:
+          radial-gradient(
+            1000px 600px at 85% -10%,
+            var(--bg2),
+            transparent 70%
+          ),
+          #000;
+        background-color: #000;
+        color: var(--ink);
+        font:
+          400 17px/1.65 "DM Sans",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Arial,
+          sans-serif;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: Sora, "Trebuchet MS", system-ui, sans-serif;
+        margin: 0;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--c);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      header {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(0, 0, 0, 0.7);
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 64px;
+        gap: 16px;
+      }
+      .logo {
+        font:
+          800 19px Sora,
+          sans-serif;
+        text-decoration: none;
+        background: linear-gradient(90deg, var(--a), var(--b));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      nav ul {
+        display: flex;
+        gap: 22px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-x: auto;
+      }
+      nav li a {
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 500;
+        font-size: 15px;
+        white-space: nowrap;
+        transition: color 0.2s;
+      }
+      nav li a:hover {
+        color: #fff;
+      }
+      .hero {
+        position: relative;
+        min-height: calc(100vh - 64px);
+        min-height: calc(100svh - 64px);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+      #net {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .hero .wrap {
+        position: relative;
+        z-index: 1;
+        pointer-events: none;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+      .hero .wrap > * {
+        pointer-events: auto;
+      }
+      .hi {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 999px;
+        font-size: 14px;
+        color: var(--muted);
+        backdrop-filter: blur(8px);
+      }
+      .hi i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #34d399;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        50% {
+          opacity: 0.35;
+        }
+      }
+      .hero h1 {
+        font-size: clamp(42px, 7.5vw, 88px);
+        font-weight: 800;
+        margin: 20px 0 0;
+        max-width: 12ch;
+        background: linear-gradient(100deg, #fff 30%, var(--a) 65%, var(--b));
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: shine 7s ease-in-out infinite alternate;
+      }
+      @keyframes shine {
+        to {
+          background-position: 100% 0;
+        }
+      }
+      .hero p {
+        max-width: 54ch;
+        color: var(--muted);
+        font-size: clamp(17px, 2.2vw, 20px);
+        margin: 22px 0 0;
+      }
+      .role {
+        color: #fff;
+        font-weight: 700;
+      }
+      .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 13px 24px;
+        border-radius: 14px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid var(--line);
+        background: var(--card);
+        backdrop-filter: blur(8px);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s,
+          border-color 0.2s;
+      }
+      .btn.main {
+        background: linear-gradient(100deg, var(--a), var(--b));
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 10px 30px var(--glow);
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        border-color: var(--a);
+      }
+      section {
+        padding: 80px 0;
+      }
+      h2 {
+        font-size: clamp(30px, 4.6vw, 46px);
+        margin-bottom: 12px;
+      }
+      .sub {
+        color: var(--muted);
+        max-width: 56ch;
+        margin: 0 0 36px;
+      }
+      .about {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .glass {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        padding: 26px;
+        backdrop-filter: blur(12px);
+      }
+      .facts {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 16px;
+      }
+      .facts b {
+        display: block;
+        font:
+          700 18px Sora,
+          sans-serif;
+      }
+      .facts span {
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+      .tilt {
+        transform-style: preserve-3d;
+        transition:
+          transform 0.15s ease-out,
+          box-shadow 0.3s,
+          border-color 0.3s;
+        will-change: transform;
+      }
+      .tilt:hover {
+        box-shadow: 0 24px 60px var(--glow);
+        border-color: rgba(139, 123, 255, 0.5);
+      }
+      .proj {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 26px;
+      }
+      .proj h3 {
+        font-size: 26px;
+        background: linear-gradient(90deg, var(--a), var(--c));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+      .when {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 6px 0 0;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+      }
+      .tags li {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(139, 123, 255, 0.12);
+      }
+      .pts {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .pts li {
+        margin-bottom: 8px;
+      }
+      .pts li::marker {
+        color: var(--b);
+      }
+      .skillwrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: center;
+      }
+      #orb {
+        width: 100%;
+        aspect-ratio: 1;
+        max-height: 480px;
+        display: block;
+        cursor: grab;
+        touch-action: pan-y;
+      }
+      .skill {
+        margin-bottom: 16px;
+      }
+      .skill h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+      .skill .tags {
+        margin: 0;
+      }
+      .tl {
+        padding-left: 28px;
+        border-left: 2px solid var(--line);
+        margin-left: 8px;
+      }
+      .tl article {
+        position: relative;
+        margin-bottom: 28px;
+      }
+      .tl article::before {
+        content: "";
+        position: absolute;
+        left: -37px;
+        top: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--a), var(--b));
+        box-shadow: 0 0 0 5px var(--glow);
+      }
+      .tl h3 {
+        font-size: 21px;
+      }
+      .tl p {
+        margin: 4px 0;
+        color: var(--muted);
+      }
+      .tl ul {
+        margin: 8px 0 0;
+        padding-left: 20px;
+      }
+      .contact {
+        text-align: center;
+      }
+      .contact h2 {
+        margin: 0 auto 14px;
+        max-width: 16ch;
+        font-size: clamp(34px, 6vw, 64px);
+      }
+      .contact .sub {
+        margin: 0 auto 30px;
+      }
+      .contact .cta {
+        justify-content: center;
+      }
+      footer {
+        padding: 26px 0 40px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 14px;
+        border-top: 1px solid var(--line);
+      }
+      .js .rv {
+        opacity: 0;
+        transform: translateY(26px) scale(0.98);
+        transition:
+          opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+          transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .js .rv.in {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 820px) {
+        .about,
+        .proj,
+        .skillwrap {
+          grid-template-columns: 1fr;
+        }
+        nav ul {
+          gap: 14px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        .js .rv {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav aria-label="Main">
+          <a class="logo" href="#top">Tejas Kachariya</a>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <canvas id="net" aria-hidden="true"></canvas>
+        <div class="wrap">
+          <span class="hi"
+            ><i></i>Open to AI Engineer and ML Engineer roles</span
+          >
+          <h1>Hi, I'm Tejas Kachariya</h1>
+          <p>
+            <span class="role" id="role">AI Engineer</span> who builds
+            end-to-end machine learning and Retrieval-Augmented Generation (RAG)
+            apps, from model training and vector search to FastAPI services in
+            Docker.
+          </p>
+          <div class="cta">
+            <a class="btn main" href="#projects">View projects</a
+            ><a class="btn" href="#contact">Contact me</a>
+          </div>
+        </div>
+      </div>
+
+      <section id="about">
+        <div class="wrap">
+          <h2 class="rv">About me</h2>
+          <div class="about rv">
+            <p>
+              I am pursuing an M.Sc. in Data Science after a B.Sc. in Computer
+              Science. I like projects that run end to end: clean data, a
+              trained model or retrieval pipeline, a documented API, a usable
+              interface, and a container anyone can start with one command.
+            </p>
+            <div class="glass tilt">
+              <ul class="facts">
+                <li>
+                  <b>M.Sc. Data Science</b><span>Currently pursuing</span>
+                </li>
+                <li><b>B.Sc. Computer Science</b><span>Completed</span></li>
+                <li>
+                  <b>Frontend roots</b
+                  ><span>6-month React.js internship at Toshal Infotech</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="wrap">
+          <h2 class="rv">Projects</h2>
+          <div class="grid">
+            <article class="glass tilt proj rv">
+              <div>
+                <h3>ResearchMate</h3>
+                <p class="when">Academic research assistant (RAG)</p>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>LangChain</li>
+                  <li>Google Gemini</li>
+                  <li>Redis Stack</li>
+                  <li>Streamlit</li>
+                  <li>Docker</li>
+                </ul>
+              </div>
+              <ul class="pts">
+                <li>
+                  Ingests papers from the arXiv API with rate limiting and
+                  exponential backoff into topic-scoped Redis vector indices.
+                </li>
+                <li>
+                  Generates 3072-dimension embeddings with Google Gemini and
+                  runs top-K vector similarity search on Redis Stack.
+                </li>
+                <li>
+                  Uses a LangChain (LCEL) pipeline to answer questions grounded
+                  in retrieved papers, with verifiable citations.
+                </li>
+                <li>
+                  Streamlit interface with paper summary cards and
+                  conversational Q&A. Modular package, Pytest suite with mocked
+                  services, Docker Compose deployment.
+                </li>
+              </ul>
+            </article>
+
+            <article class="glass tilt proj rv">
+              <div>
+                <h3>Student Mental Health Score Predictor</h3>
+                <p class="when">End-to-end ML web app</p>
+                <ul class="tags">
+                  <li>Scikit-Learn</li>
+                  <li>Pandas</li>
+                  <li>FastAPI</li>
+                  <li>Streamlit</li>
+                  <li>Docker</li>
+                </ul>
+              </div>
+              <ul class="pts">
+                <li>
+                  Trained a RandomForestRegressor pipeline on a 5,000-record
+                  survey of social media use, sleep, exercise, stress and
+                  academics.
+                </li>
+                <li>
+                  FastAPI backend with /predict and /health endpoints and
+                  Swagger docs, plus a Streamlit frontend with live gauge
+                  charts, persona presets and lifestyle insights.
+                </li>
+                <li>
+                  Maps each score to one of 4 wellness categories: Thriving,
+                  Balanced, Mild Concern, High Concern.
+                </li>
+                <li>
+                  Decoupled backend and frontend, containerized with Docker and
+                  docker-compose.
+                </li>
+              </ul>
+            </article>
+
+            <article class="glass tilt proj rv">
+              <div>
+                <h3>Cricket Auction</h3>
+                <p class="when">Real-time auction platform, Mar 2025</p>
+                <ul class="tags">
+                  <li>React.js</li>
+                  <li>Firebase</li>
+                  <li>Tailwind CSS</li>
+                  <li>GSAP</li>
+                  <li>Framer Motion</li>
+                </ul>
+              </div>
+              <ul class="pts">
+                <li>
+                  Live bidding with admin control and instant data sync through
+                  the Firebase real-time database.
+                </li>
+                <li>
+                  Role-based dashboards and access control for Admin, Team and
+                  User through Firebase Auth.
+                </li>
+                <li>
+                  Squads grouped as Batsmen, Bowlers, All-rounders and
+                  Wicket-keepers in a fully responsive, animated interface.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="wrap">
+          <h2 class="rv">Skills</h2>
+          <p class="sub rv">Drag the sphere to spin it.</p>
+          <div class="skillwrap rv">
+            <canvas
+              id="orb"
+              aria-label="3D sphere of skill names"
+              role="img"
+            ></canvas>
+            <div>
+              <div class="skill">
+                <h3>Languages</h3>
+                <ul class="tags">
+                  <li>Python</li>
+                  <li>SQL</li>
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>ML and AI</h3>
+                <ul class="tags">
+                  <li>Machine Learning</li>
+                  <li>Scikit-Learn</li>
+                  <li>Pandas</li>
+                  <li>NumPy</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>GenAI and LLMs</h3>
+                <ul class="tags">
+                  <li>LLMs</li>
+                  <li>RAG</li>
+                  <li>LangChain</li>
+                  <li>Vector Search</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>Backend and APIs</h3>
+                <ul class="tags">
+                  <li>FastAPI</li>
+                  <li>REST APIs</li>
+                  <li>Streamlit</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>Databases</h3>
+                <ul class="tags">
+                  <li>Redis</li>
+                  <li>Vector Databases</li>
+                  <li>Firebase</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>MLOps and Tools</h3>
+                <ul class="tags">
+                  <li>Docker</li>
+                  <li>Git/GitHub</li>
+                  <li>Pytest</li>
+                  <li>Jupyter</li>
+                </ul>
+              </div>
+              <div class="skill">
+                <h3>Frontend</h3>
+                <ul class="tags">
+                  <li>React.js</li>
+                  <li>Tailwind CSS</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <div class="wrap">
+          <h2 class="rv">Experience and education</h2>
+          <br />
+          <div class="tl rv">
+            <article>
+              <h3>Frontend Developer Intern (React.js)</h3>
+              <p>Toshal Infotech, 6 months</p>
+              <ul>
+                <li>Built responsive user interfaces with React.js.</li>
+                <li>Worked with Firebase and Git/GitHub in a team setting.</li>
+              </ul>
+            </article>
+            <article>
+              <h3>M.Sc. Data Science</h3>
+              <p>Gujarat University, currently pursuing</p>
+            </article>
+            <article>
+              <h3>B.Sc. Computer Science</h3>
+              <p>Shree Ramkrishna Institute</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="wrap">
+          <h2 class="rv">Let's build something with AI.</h2>
+          <p class="sub rv">Send me a message or have a look at my code.</p>
+          <div class="cta rv">
+           <a class="btn" href="mailto:tejaskachariya@gmail.com" target="_blank">Email</a>
+            <a class="btn" href="https://github.com/TejasKachariya08" target="_blank">GitHub</a
+            ><a class="btn" href="https://www.linkedin.com/in/tejas-kachariya" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>© Tejas Kachariya</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      (function () {
+        var root = document.documentElement,
+          rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        root.classList.add("js");
+        function cv(n) {
+          return getComputedStyle(root).getPropertyValue(n).trim();
+        }
+        var io = new IntersectionObserver(
+          function (es) {
+            es.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 },
+        );
+        document.querySelectorAll(".rv").forEach(function (el) {
+          io.observe(el);
+        });
+        var roles = ["AI Engineer", "ML Engineer", "RAG Builder"],
+          ri = 0,
+          rl = document.getElementById("role");
+        if (!rm)
+          setInterval(function () {
+            ri = (ri + 1) % roles.length;
+            rl.textContent = roles[ri];
+          }, 2200);
+        if (!rm && window.matchMedia("(hover:hover)").matches)
+          document.querySelectorAll(".tilt").forEach(function (c) {
+            c.addEventListener("pointermove", function (e) {
+              var r = c.getBoundingClientRect(),
+                x = (e.clientX - r.left) / r.width - 0.5,
+                y = (e.clientY - r.top) / r.height - 0.5;
+              c.style.transform =
+                "perspective(900px) rotateY(" +
+                x * 9 +
+                "deg) rotateX(" +
+                -y * 9 +
+                "deg) translateZ(6px)";
+            });
+            c.addEventListener("pointerleave", function () {
+              c.style.transform = "";
+            });
+          });
+        if (!window.THREE) return;
+        var vis = {};
+        function watch(el, k) {
+          vis[k] = true;
+          new IntersectionObserver(function (e) {
+            vis[k] = e[0].isIntersecting;
+          }).observe(el);
+        }
+        function mk(canvas) {
+          try {
+            var r = new THREE.WebGLRenderer({
+              canvas: canvas,
+              antialias: true,
+              alpha: true,
+            });
+            r.setPixelRatio(Math.min(devicePixelRatio, 2));
+            return r;
+          } catch (e) {
+            return null;
+          }
+        }
+        function fit(r, cam, el) {
+          var w = el.clientWidth,
+            h = el.clientHeight;
+          r.setSize(w, h, false);
+          cam.aspect = w / h;
+          cam.updateProjectionMatrix();
+        }
+        var A = cv("--a"),
+          B = cv("--b"),
+          C = cv("--c"),
+          INK = cv("--ink");
+
+        /* hero: neural network + wireframe core */
+        var nc = document.getElementById("net"),
+          nr = mk(nc);
+        if (nr) {
+          var ns = new THREE.Scene(),
+            nm = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
+          nm.position.z = 8;
+          var g = new THREE.Group();
+          ns.add(g);
+          var N = 80,
+            pos = [],
+            vel = [],
+            pa = new Float32Array(N * 3);
+          for (var i = 0; i < N; i++) {
+            pos.push(
+              new THREE.Vector3(
+                (Math.random() - 0.5) * 12,
+                (Math.random() - 0.5) * 7,
+                (Math.random() - 0.5) * 6,
+              ),
+            );
+            vel.push(
+              new THREE.Vector3(
+                (Math.random() - 0.5) * 0.006,
+                (Math.random() - 0.5) * 0.006,
+                (Math.random() - 0.5) * 0.006,
+              ),
+            );
+          }
+          var pg = new THREE.BufferGeometry();
+          pg.setAttribute("position", new THREE.BufferAttribute(pa, 3));
+          g.add(
+            new THREE.Points(
+              pg,
+              new THREE.PointsMaterial({
+                size: 0.09,
+                color: C,
+                transparent: true,
+                opacity: 0.95,
+              }),
+            ),
+          );
+          var MAXL = N * 6,
+            la = new Float32Array(MAXL * 6),
+            lg = new THREE.BufferGeometry();
+          lg.setAttribute("position", new THREE.BufferAttribute(la, 3));
+          g.add(
+            new THREE.LineSegments(
+              lg,
+              new THREE.LineBasicMaterial({
+                color: A,
+                transparent: true,
+                opacity: 0.4,
+              }),
+            ),
+          );
+          var core = new THREE.Mesh(
+            new THREE.IcosahedronGeometry(1.7, 1),
+            new THREE.MeshBasicMaterial({
+              color: A,
+              wireframe: true,
+              transparent: true,
+              opacity: 0.6,
+            }),
+          );
+          var core2 = new THREE.Mesh(
+            new THREE.TorusKnotGeometry(0.55, 0.16, 90, 12),
+            new THREE.MeshBasicMaterial({
+              color: B,
+              wireframe: true,
+              transparent: true,
+              opacity: 0.8,
+            }),
+          );
+          core.add(core2);
+          g.add(core);
+          var mx = 0,
+            my = 0;
+          addEventListener("pointermove", function (e) {
+            mx = e.clientX / innerWidth - 0.5;
+            my = e.clientY / innerHeight - 0.5;
+          });
+          var hero = nc.parentElement;
+          watch(hero, "n");
+          function nfit() {
+            fit(nr, nm, hero);
+            var m = nm.aspect < 1;
+            core.position.set(m ? 0 : 3.2, m ? 2.4 : 0, 0);
+            core.scale.setScalar(m ? 0.7 : 1);
+          }
+          nfit();
+          addEventListener("resize", nfit);
+        }
+        /* skills: text sphere */
+        var oc = document.getElementById("orb"),
+          or_ = mk(oc);
+        if (or_) {
+          var os = new THREE.Scene(),
+            om = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+          om.position.z = 8;
+          var words = [
+            "Python",
+            "SQL",
+            "JavaScript",
+            "Machine Learning",
+            "Scikit-Learn",
+            "Pandas",
+            "NumPy",
+            "RAG",
+            "LLMs",
+            "LangChain",
+            "Vector DB",
+            "Redis",
+            "FastAPI",
+            "REST APIs",
+            "Streamlit",
+            "Docker",
+            "Git/GitHub",
+            "Firebase",
+            "React.js",
+            "Tailwind CSS",
+            "Pytest",
+            "Jupyter",
+            "Embeddings",
+          ];
+          var og = new THREE.Group();
+          os.add(og);
+          var sprites = [],
+            R = 3;
+          function label(t, col) {
+            var c = document.createElement("canvas");
+            c.width = 320;
+            c.height = 80;
+            var x = c.getContext("2d");
+            x.font = "700 38px Sora,Arial,sans-serif";
+            x.textAlign = "center";
+            x.textBaseline = "middle";
+            x.fillStyle = col;
+            x.fillText(t, 160, 40);
+            return new THREE.CanvasTexture(c);
+          }
+          words.forEach(function (w, i) {
+            var k = words.length,
+              y = 1 - (i / (k - 1)) * 2,
+              rad = Math.sqrt(1 - y * y),
+              th = i * 2.399963;
+            var s = new THREE.Sprite(
+              new THREE.SpriteMaterial({
+                transparent: true,
+                depthWrite: false,
+              }),
+            );
+            s.position.set(
+              Math.cos(th) * rad * R,
+              y * R,
+              Math.sin(th) * rad * R,
+            );
+            s.scale.set(2, 0.5, 1);
+            og.add(s);
+            sprites.push(s);
+          });
+          var shell = new THREE.Mesh(
+            new THREE.IcosahedronGeometry(R * 0.96, 2),
+            new THREE.MeshBasicMaterial({
+              color: A,
+              wireframe: true,
+              transparent: true,
+              opacity: 0.14,
+            }),
+          );
+          og.add(shell);
+          function ot() {
+            sprites.forEach(function (s, i) {
+              s.material.map = label(words[i], i % 3 ? INK : i % 2 ? B : C);
+              s.material.needsUpdate = true;
+            });
+          }
+          ot();
+          if (document.fonts && document.fonts.ready)
+            document.fonts.ready.then(ot);
+          var drag = false,
+            px = 0,
+            py = 0;
+          oc.addEventListener("pointerdown", function (e) {
+            drag = true;
+            px = e.clientX;
+            py = e.clientY;
+            oc.setPointerCapture(e.pointerId);
+            oc.style.cursor = "grabbing";
+          });
+          oc.addEventListener("pointermove", function (e) {
+            if (!drag) return;
+            og.rotation.y += (e.clientX - px) * 0.008;
+            og.rotation.x += (e.clientY - py) * 0.008;
+            px = e.clientX;
+            py = e.clientY;
+          });
+          oc.addEventListener("pointerup", function () {
+            drag = false;
+            oc.style.cursor = "grab";
+          });
+          watch(oc, "o");
+          function ofit() {
+            fit(or_, om, oc);
+          }
+          ofit();
+          addEventListener("resize", ofit);
+        }
+        var v = new THREE.Vector3();
+        function loop() {
+          requestAnimationFrame(loop);
+          if (nr && vis.n) {
+            for (var i = 0; i < N; i++) {
+              var p = pos[i];
+              if (!rm) p.add(vel[i]);
+              if (Math.abs(p.x) > 6) vel[i].x *= -1;
+              if (Math.abs(p.y) > 3.5) vel[i].y *= -1;
+              if (Math.abs(p.z) > 3) vel[i].z *= -1;
+              pa[i * 3] = p.x;
+              pa[i * 3 + 1] = p.y;
+              pa[i * 3 + 2] = p.z;
+            }
+            var n = 0;
+            for (var a = 0; a < N; a++)
+              for (var b = a + 1; b < N && n < MAXL; b++) {
+                if (pos[a].distanceToSquared(pos[b]) < 2.6) {
+                  la[n * 6] = pos[a].x;
+                  la[n * 6 + 1] = pos[a].y;
+                  la[n * 6 + 2] = pos[a].z;
+                  la[n * 6 + 3] = pos[b].x;
+                  la[n * 6 + 4] = pos[b].y;
+                  la[n * 6 + 5] = pos[b].z;
+                  n++;
+                }
+              }
+            lg.setDrawRange(0, n * 2);
+            lg.attributes.position.needsUpdate = true;
+            pg.attributes.position.needsUpdate = true;
+            if (!rm) {
+              core.rotation.x += 0.003;
+              core.rotation.y += 0.006;
+              core2.rotation.y -= 0.012;
+              g.rotation.y += (mx * 0.5 - g.rotation.y) * 0.05;
+              g.rotation.x += (my * 0.3 - g.rotation.x) * 0.05;
+            }
+            nr.render(ns, nm);
+          }
+          if (or_ && vis.o) {
+            if (!drag && !rm) {
+              og.rotation.y += 0.004;
+              og.rotation.x *= 0.98;
+            }
+            sprites.forEach(function (s) {
+              s.getWorldPosition(v);
+              var d = (v.z + R) / (2 * R);
+              s.material.opacity = 0.25 + 0.75 * d;
+              var k = 0.8 + 0.45 * d;
+              s.scale.set(2 * k, 0.5 * k, 1);
+            });
+            or_.render(os, om);
+          }
+        }
+        requestAnimationFrame(loop);
+      })();
+    </script>
+  </body>
+</html>
